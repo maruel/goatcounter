@@ -18,7 +18,7 @@ import (
 
 // Version of GoatCounter; set at compile-time with:
 //
-//	-ldflags="-X zgo.at/goatcounter/v2.Version=…"
+//   -ldflags="-X zgo.at/goatcounter/v2.Version=…"
 var Version = "dev"
 
 func getCommit() (string, time.Time, bool) {
