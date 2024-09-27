@@ -16,7 +16,9 @@ import (
 	"zgo.at/zhttp/ctxkey"
 )
 
-// Version of GoatCounter.
+// Version of GoatCounter; set at compile-time with:
+//
+//	-ldflags="-X zgo.at/goatcounter/v2.Version=…"
 var Version = "dev"
 
 func getCommit() (string, time.Time, bool) {
@@ -38,7 +40,7 @@ func getCommit() (string, time.Time, bool) {
 }
 
 func init() {
-	if Version == "dev" {
+	if Version == "" || Version == "dev" {
 		// Only calculate the version if not explicitly overridden with:
 		//	-ldflags="-X zgo.at/goatcounter/v2.Version=$tag"
 		// which is done for official builds.
